@@ -98,9 +98,9 @@ class DASParser(SimpleParser):
 
         values = []
 
-        # One attribute for MLS data needs special handling since it breaks the
-        # parser (doesn't meet the DAP 2.0 standard):
-        if type_.lower() in ['string'] and name == 'PCF1':
+        # One attribute for MLS and CALIPSO data needs special handling since
+        # it breaks the parser (doesn't meet the DAP 2.0 standard):
+        if type_.lower() in ['string'] and name in ['PCF1', 'Vdata_field_Production_Script']:
             endstrindx = self.buffer.index('";')
             value = self.buffer[1:endstrindx]
             self.buffer = self.buffer[endstrindx+1:]
