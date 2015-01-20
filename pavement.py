@@ -59,12 +59,12 @@ Opendap server, implemented as a WSGI application.
 
         dependency_links=[],
         install_requires=[
-            'numpy',
+            'numpy>=1.6.1',
             'httplib2>=0.4.0',
-            'Genshi',
-            'Paste',
-            'PasteScript',
-            'PasteDeploy',
+            'Genshi>=0.7',
+            'Paste>=1.7.5.1',
+            'PasteScript>=1.7.5',
+            'PasteDeploy>=1.5.0',
         ],
         extras_require={
             'test': ['nose', 'wsgi_intercept'],
