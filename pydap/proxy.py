@@ -112,6 +112,9 @@ class ArrayProxy(VariableProxy):
                 self.id + hyperslab(slice_) + '&' + query,
                 fragment))
 
+        # if no query at the end of url, remove "&" to prevent constraint expression parse errors in older BES
+        if url.endswith('&'): url = url[:-1]
+
         resp, data = request(url)
         dds, xdrdata = data.split('\nData:\n', 1)
         dataset = DDSParser(dds).parse()
